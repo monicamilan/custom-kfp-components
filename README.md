@@ -4,6 +4,18 @@ developing Kubeflow pipelines.
 It consists of a set of modules that contain some pre-build components which are parametrized, 
 so that they can easily be imported and most importantly re-used amongst different projects.
 
+## Goals
+![img.png](goals.png)
+
+## Architecture
+Base classes [custom_kfp_components/components.py]: 
+* **CoeComponentsBuilder:** Parent class containing the required methods to decorate a function as a Python Component
+* **CoeComponents:** Wrapper class that returns a Python Component
+
+Custom components classes:  
+* *****Builder** (e.g. LoadCsvBuilder or LabelEncofingBuilder): Child class defining component’s code and requirements
+* *** (e.g. LoadCsv or LabelEncoding): Wrapper class that returns a Python Component with the logic defined in the ***Builder class
+
 ## Components available
 Here's a list of supported components:
 * LoadCsv (`from custom_kfp_components.data_ingestion.load_csv import LoadCsv`)
@@ -15,7 +27,7 @@ Below you can find a brief snippet showing the package's usage.
 from kfp import dsl
 
 from custom_kfp_components.data_ingestion.load_csv import LoadCsv
-from Ccustom_kfp_components.data_preparation.label_encoding import LabelEncoding 
+from custom_kfp_components.data_preparation.label_encoding import LabelEncoding 
 
 
 @dsl.pipeline
