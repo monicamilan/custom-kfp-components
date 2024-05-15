@@ -5,7 +5,7 @@ It consists of a set of modules that contain some pre-build components which are
 so that they can easily be imported and most importantly re-used amongst different projects.
 
 ## Goals
-![img.png](goals.png)
+![img.png](images/goals.png)
 
 ## Architecture
 Base classes [custom_kfp_components/components.py]: 
@@ -15,6 +15,8 @@ Base classes [custom_kfp_components/components.py]:
 Custom components classes:  
 * *****Builder** (e.g. LoadCsvBuilder or LabelEncofingBuilder): Child class defining component’s code and requirements
 * *** (e.g. LoadCsv or LabelEncoding): Wrapper class that returns a Python Component with the logic defined in the ***Builder class
+
+![architecture.png](images/architecture.png)
 
 ## Components available
 Here's a list of supported components:
